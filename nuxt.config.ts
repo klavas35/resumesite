@@ -1,9 +1,13 @@
-import { type } from 'os';
-import {thames} from './myThemes'
-import env from 'dotenv'
-export default defineNuxtConfig({
-  ssr:false,
-  
+;
+
+import { thames } from './myThemes';
+
+export default {
+  ssr: false,
+  target: 'static',
+  router: {
+    base: '/resumesite/',
+  },
   modules: [
     '@invictus.codes/nuxt-vuetify',
     '@pinia/nuxt',
@@ -19,27 +23,25 @@ export default defineNuxtConfig({
           user: process.env.EMAIL_ADDRESS,
           pass: process.env.APP_PASS,
         },
-        
-    }}]],
+      },
+    }],
+  ],
+
   vuetify: {
-    /* vuetify options */
     vuetifyOptions: {
-        theme: {
-            themes: {
-                Mlight :thames.myLightTheme,
-                Mdark :thames.myDarkTheme
-            },
-            defaultTheme: 'Mlight'
-        }
-      // Add your Vuetify options here
+      theme: {
+        themes: {
+          light: thames.myLightTheme,
+          dark: thames.myDarkTheme,
+        },
+        defaultTheme: 'light',
+      },
     },
     moduleOptions: {
-      /* nuxt-vuetify module options */
       treeshaking: true,
       useIconCDN: true,
-      /* vite-plugin-vuetify options */
-      styles: true, // or 'none', 'expose', 'sass', { configFile: string }
+      styles: true,
       autoImport: true,
     },
   },
-});
+};

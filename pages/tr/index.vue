@@ -185,7 +185,7 @@
     </v-row>
     <v-col color="red" cols="12" md="10" style="margin-top: 3%">
       <v-card
-        title="Afterword"
+        title="Son Sözler"
         class="text-center"
         width="50%"
         color="primary"

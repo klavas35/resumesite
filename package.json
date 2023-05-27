@@ -6,8 +6,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",  
-    "deploy": "nuxt build && nuxt export && gh-pages -d dist"
+    "postinstall": "nuxt prepare",
+    "deploy": "gh-pages -d dist",
+    "ddeploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@invictus.codes/nuxt-vuetify": "^0.2.20",
@@ -16,8 +17,8 @@
     "dotenv": "^16.0.3",
     "gh-pages": "^5.0.0",
     "nuxt": "^3.5.0",
-    "nuxt-mail": "^4.0.1"
-  
+    "nuxt-mail": "^4.0.1",
+    "push-dir": "^0.4.1"
   },
   "overrides": {
     "vue": "latest"
@@ -26,5 +27,5 @@
     "@pinia/nuxt": "^0.4.11",
     "pinia": "^2.1.3"
   },
-  "homepage": "https://klavas35.github.io/resumesite"
+  "homepage": "https://klavas35.github.io/resumesite/"
 }
