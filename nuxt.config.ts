@@ -10,6 +10,10 @@ export default {
     ],
     // other configurations
   },
+  app:{
+    baseUrl: '/resumesite/'
+  }
+  ,
   ssr: false,
   target: 'static',
   
