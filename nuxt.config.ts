@@ -5,9 +5,7 @@ import { thames } from './myThemes';
 export default {
   ssr: false,
   target: 'static',
-  router: {
-    base: '/resumesite/',
-  },
+  
   modules: [
     '@invictus.codes/nuxt-vuetify',
     '@pinia/nuxt',
