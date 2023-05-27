@@ -3,6 +3,13 @@
 import { thames } from './myThemes';
 
 export default {
+  head: {
+    meta: [
+      { 'httpEquiv': 'Permissions-Policy', 'content': 'interest-cohort=()' },
+      // other meta tags
+    ],
+    // other configurations
+  },
   ssr: false,
   target: 'static',
   
