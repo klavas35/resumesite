@@ -2,6 +2,8 @@ import { type } from 'os';
 import {thames} from './myThemes'
 import env from 'dotenv'
 export default defineNuxtConfig({
+  ssr:false,
+  
   modules: [
     '@invictus.codes/nuxt-vuetify',
     '@pinia/nuxt',

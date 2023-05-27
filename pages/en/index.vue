@@ -40,7 +40,7 @@
           ><strong style="margin-left: 0.6%">Right Eye:</strong> My right eye is
           prosthetic <br />
           <strong style="margin-left: 0.6%">Left Eye:</strong> My left eye is
-          5.5 hypermetropic and 0.75 astigmatic "</v-card
+          5.5 hypermetropic and 0.75 astigmatic </v-card
         >
       </v-col>
     </v-row>

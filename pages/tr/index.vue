@@ -38,7 +38,7 @@
         ></v-card>
         <v-card title="Engeller" color="secondary"
           ><strong style="margin-left: 0.6%">Sağ Göz:</strong> Sağ gözüm protez<br />
-          <strong style="margin-left: 0.6%">Sol Göz:</strong> Sol gözüm 5.5 hipermetropik ve 0.75 astigmat "</v-card
+          <strong style="margin-left: 0.6%">Sol Göz:</strong> Sol gözüm 5.5 hipermetropik ve 0.75 astigmat</v-card
         >
       </v-col>
     </v-row>
