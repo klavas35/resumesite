@@ -37,23 +37,7 @@
           </v-card-text>
         </v-card>
         <v-col style="margin-left: 3%" cols="12" md="10">
-          <v-card>
-            <v-card-title>
-              <h1>Konum</h1>
-            </v-card-title>
-            <v-card-text>
-              <div style="position: relative; overflow: hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d196.7294367031637!2d28.316533402453825!3d37.914752333738626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2str!4v1684772515183!5m2!1sen!2str"
-                  width="100%"
-                  height="300"
-                  frameborder="0"
-                  style="border: 0; margin: 0"
-                  loading="lazy"
-                ></iframe>
-              </div>
-            </v-card-text>
-          </v-card>
+          
         </v-col>
       </v-col>
 
@@ -63,7 +47,7 @@
             <h1>İletişim Formu</h1>
           </v-card-title>
           <v-card-text>
-            <v-form>
+            <v-form v-if="!formState" ref="contactForm">
               <v-text-field
                 label="Adınız"
                 v-model="message.name"
@@ -86,6 +70,9 @@
               ></v-textarea>
               <v-btn @click="send" color="primary" dark>Gönder</v-btn>
             </v-form>
+            <v-card v-else color="green" text="Mesajiniz Yollandı yeni messaj atmak için lütfen yıklayınız">
+              <v-btn @click="formState = false" color="primary" dark>Yeni Mesaj</v-btn>
+            </v-card>
           </v-card-text>
         </v-card>
       </v-col>
@@ -93,29 +80,50 @@
   </v-container>
 </template>
 
-<script lang="ts">
+<script lang="js">
 export default {
-    setup() {
+  
+  setup() {
     const mail = useMail();
+    const isMobile = ref(false);
     const message = ref({
-        name: "",
-        surname: "",
-        email: "",
-        message: "",
-        })
-        function send() {
-            console.log(mail);
-            
-            mail.send({
-                from: message.value.name + " " + message.value.surname + " <" + message.value.email + ">",
-                subject: 'resumsite',
-                text: message.value.message,
-            });
-        }
-        return {
-            message,
-            send,
-        };
+      name: "",
+      surname: "",
+      email: "",
+      message: "",
+    });
+    const formState = ref(false);
+    function send() {
+      console.log(mail);
+      formState.value = true;
+      this.$refs.contactForm.reset();
+      mail.send({
+        from:
+          message.value.name +
+          " " +
+          message.value.surname +
+          " <" +
+          message.value.email +
+          ">",
+        subject: "resumsite",
+        text: message.value.message,
+      });
+      message.value = "";
     }
-}
+    return {
+      message,
+      send,
+      isMobile,
+      formState,
+    };
+  },
+  mounted() {
+    this.isMobile = this.$vuetify.display.mobile;
+  },
+  created() {
+    window.addEventListener("resize", () => {
+      this.isMobile = this.$vuetify.display.mobile;
+    });
+  },
+};
 </script>

@@ -9,6 +9,9 @@
 import trcontact from "./tr/contact.vue";
 import encontact from "./en/contact.vue";
 export default {
+  data() {
+    const isMobile = this.isMobile
+  },
   components: {
     trcontact,
     encontact,

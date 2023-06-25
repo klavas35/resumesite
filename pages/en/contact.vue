@@ -36,7 +36,7 @@
           </v-card-text>
         </v-card>
         <v-col style="margin-left: 3%" cols="12" md="10">
-          <v-card>
+          <v-card v-if="!isMobile">
             <v-card-title>
               <h1>Location</h1>
             </v-card-title>
@@ -95,6 +95,7 @@
 export default {
   setup() {
     const mail = useMail();
+    const isMobile = ref(false)
     const message = ref({
       name: "",
       surname: "",
@@ -102,6 +103,8 @@ export default {
       message: "",
     });
     function send() {
+      console.log('@send');
+      
       console.log(mail);
 
       mail.send({
@@ -119,7 +122,16 @@ export default {
     return {
       message,
       send,
+      isMobile
     };
+  },
+  mounted() {
+    this.isMobile = this.$vuetify.display.mobile;
+  },
+  created() {
+    window.addEventListener("resize", () => {
+      this.isMobile = this.$vuetify.display.mobile;
+    });
   },
 };
 </script>

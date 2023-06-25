@@ -15,7 +15,8 @@ export default{
     props: {
         locale: {
             type: String,
-        }
+        },
+        
     },
 }
 </script>

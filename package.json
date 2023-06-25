@@ -4,20 +4,22 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate && touch .output/public/.nojekyll",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "gh-pages -d dist",
+    "deploy": "nuxt generate && touch .output/public/.nojekyll && gh-pages -d ./.output/public -t true",
     "ddeploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@invictus.codes/nuxt-vuetify": "^0.2.20",
     "@nuxtjs/i18n": "^8.0.0-beta.12",
     "@types/node": "^18",
+    "axios": "^1.4.0",
     "dotenv": "^16.0.3",
     "gh-pages": "^5.0.0",
     "nuxt": "^3.5.0",
     "nuxt-mail": "^4.0.1",
+    "nuxt-security": "^0.13.1",
     "push-dir": "^0.4.1"
   },
   "overrides": {
