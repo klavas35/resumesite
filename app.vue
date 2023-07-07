@@ -125,7 +125,7 @@ export default {
       default: "Türkçe",
       title: "Türkçe",
     });
-    console.log("test")
+  
     function changeLocele(data: string) {
       locale.value.title = data;
     }
