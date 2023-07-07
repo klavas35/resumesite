@@ -96,7 +96,6 @@ export default {
     function send() {
       console.log(mail);
       formState.value = true;
-      this.$refs.contactForm.reset();
       mail.send({
         from:
           message.value.name +
@@ -107,7 +106,9 @@ export default {
           ">",
         subject: "resumsite",
         text: message.value.message,
-      });
+      }).catch((err) => {
+        console.log(err);
+      })
       message.value = "";
     }
     return {
